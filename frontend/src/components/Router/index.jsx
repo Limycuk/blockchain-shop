@@ -11,7 +11,7 @@ import styles from "./styles";
 const Router = ({ classes }) => {
   return (
     <BrowserRouter>
-      <div>
+      <div className={classes.container}>
         <Route path="/" exact component={PizzaList} />
       </div>
     </BrowserRouter>

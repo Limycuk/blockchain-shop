@@ -5,14 +5,21 @@ import { withStyles } from "@material-ui/core/styles";
 
 import styles from "./styles";
 import useGetPizzaList from "../../hooks/useGetPizzaList";
+import Pizza from "../Pizza";
 
 const PizzaList = ({ classes }) => {
   const pizzas = useGetPizzaList();
 
+  if (pizzas.length === 0) {
+    return null;
+  }
+
   return (
-    <div className={classes.container}>
-      <p>test</p>
-    </div>
+    <ul className={classes.container}>
+      {pizzas.map(pizza => {
+        return <Pizza key={pizza.id} pizza={pizza} />;
+      })}
+    </ul>
   );
 };
 

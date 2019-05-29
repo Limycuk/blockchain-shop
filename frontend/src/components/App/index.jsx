@@ -1,20 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { ThemeProvider } from "@material-ui/styles";
 
+import Router from "../Router";
 import theme from "./theme";
 
-const App = ({ classes }) => {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <p>test</p>
+      <Router />
     </ThemeProvider>
   );
-};
-
-App.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default App;
