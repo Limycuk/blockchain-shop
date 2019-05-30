@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/blockchain-shop/static/css/main.34de6062.chunk.css",
+    "main.js": "/blockchain-shop/static/js/main.516eec4b.chunk.js",
+    "main.js.map": "/blockchain-shop/static/js/main.516eec4b.chunk.js.map",
+    "runtime~main.js": "/blockchain-shop/static/js/runtime~main.83319e37.js",
+    "runtime~main.js.map": "/blockchain-shop/static/js/runtime~main.83319e37.js.map",
+    "static/js/2.a7e8d7fb.chunk.js": "/blockchain-shop/static/js/2.a7e8d7fb.chunk.js",
+    "static/js/2.a7e8d7fb.chunk.js.map": "/blockchain-shop/static/js/2.a7e8d7fb.chunk.js.map",
+    "index.html": "/blockchain-shop/index.html",
+    "precache-manifest.1d8d795fbe48e260ed5d79ab888a9bf1.js": "/blockchain-shop/precache-manifest.1d8d795fbe48e260ed5d79ab888a9bf1.js",
+    "service-worker.js": "/blockchain-shop/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/blockchain-shop/static/css/main.34de6062.chunk.css.map",
+    "static/media/no-image-available.png": "/blockchain-shop/static/media/no-image-available.ba25863b.png"
+  }
+}
