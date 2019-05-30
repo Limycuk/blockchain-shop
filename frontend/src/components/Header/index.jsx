@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -10,14 +11,16 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
+import LocalPizza from "@material-ui/icons/LocalPizza";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
 import useStyles from "./styles";
 import connect from "./connect";
 import DesktopMenu from "./view/DesktopMenu";
 import MobileMenu from "./view/MobileMenu";
+import getBadgetPrice from "./services/getBadgetPrice";
 
-const Header = ({ pizzasCounter }) => {
+const Header = ({ pizzasCounter, totalPrice }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -43,7 +46,7 @@ const Header = ({ pizzasCounter }) => {
   }
 
   return (
-    <div className={classes.grow}>
+    <div>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -71,8 +74,19 @@ const Header = ({ pizzasCounter }) => {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" component={Link} to="/">
               <Badge badgeContent={pizzasCounter} color="secondary">
+                <LocalPizza />
+              </Badge>
+            </IconButton>
+            <IconButton color="inherit" component={Link} to="/basket">
+              <Badge
+                badgeContent={getBadgetPrice(totalPrice)}
+                color="secondary"
+                classes={{
+                  badge: classes.badge
+                }}
+              >
                 <ShoppingBasket />
               </Badge>
             </IconButton>

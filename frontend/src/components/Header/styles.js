@@ -61,5 +61,8 @@ export default makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       display: "none"
     }
+  },
+  badge: {
+    whiteSpace: "nowrap"
   }
 }));

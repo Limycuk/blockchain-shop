@@ -1,12 +1,12 @@
 import { handleActions } from "redux-actions";
 
-import * as pizzaActions from "../actions";
+import * as basketActions from "../actions";
 
 const defaultState = {};
 
 export default handleActions(
   {
-    [pizzaActions.updateOrder]: (state, action) => {
+    [basketActions.updateOrder]: (state, action) => {
       const { id, size, price, count } = action.payload;
 
       return {

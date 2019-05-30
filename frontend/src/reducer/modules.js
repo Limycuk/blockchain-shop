@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import pizza from "~/modules/Pizza/reducer";
+import basket from "~/modules/Basket/reducer";
 
 const reducer = combineReducers({
-  pizza
+  basket
 });
 
 export default reducer;

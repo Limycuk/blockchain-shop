@@ -4,8 +4,8 @@ import * as basketSelectors from "~/modules/Basket/selectors";
 
 const mapStateToProps = state => {
   return {
-    pizzasCounter: basketSelectors.getPizzasCount(state),
-    totalPrice: basketSelectors.getTotalPrice(state)
+    totalPrice: basketSelectors.getTotalPrice(state),
+    isEmptyBasket: basketSelectors.getIsEmptyBasket(state)
   };
 };
 

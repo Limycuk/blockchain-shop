@@ -6,7 +6,7 @@ import useGetPizzaList from "../../hooks/useGetPizzaList";
 import Pizza from "../Pizza";
 import connect from "./connect";
 
-const PizzaList = ({ basket, pizzaActions }) => {
+const PizzaList = ({ basket, basketActions }) => {
   const classes = useStyles();
   const pizzas = useGetPizzaList();
 
@@ -15,14 +15,14 @@ const PizzaList = ({ basket, pizzaActions }) => {
       const { order } = event.target.dataset;
       const [id, size, price, count] = order.split("/");
 
-      pizzaActions.updateOrder({
+      basketActions.updateOrder({
         id: parseInt(id),
         size: size.toLowerCase(),
         price: parseInt(price),
         count: parseInt(count)
       });
     },
-    [pizzaActions]
+    [basketActions]
   );
 
   if (pizzas.length === 0) {
@@ -47,7 +47,7 @@ const PizzaList = ({ basket, pizzaActions }) => {
 
 PizzaList.propTypes = {
   basket: PropTypes.object.isRequired,
-  pizzaActions: PropTypes.shape({
+  basketActions: PropTypes.shape({
     updateOrder: PropTypes.func.isRequired
   }).isRequired
 };
