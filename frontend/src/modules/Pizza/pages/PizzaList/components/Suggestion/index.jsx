@@ -1,51 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import { withStyles } from "@material-ui/core/styles";
 
 import formatPrice from "~/services/formatPrice";
 
-import styles from "./styles";
+import useStyles from "./styles";
 
-const Suggestion = ({ classes, title, price, weight }) => {
-  const [count, setCount] = useState(null);
-
-  const toggleBuy = () => {
-    setCount(1);
-  };
-
-  const decreaseCount = () => {
-    setCount(count - 1);
-  };
-
-  const increaseCount = () => {
-    setCount(count + 1);
-  };
+const Suggestion = ({ title, pizzaId, price, weight, order, updateOrder }) => {
+  const classes = useStyles();
+  const isExistOrder = Boolean(order);
 
   return (
     <div className={classes.container}>
       <div className={classes.title}>{title}</div>
       <div className={classes.mainBlock}>
         <span className={classes.price}>{formatPrice(price)}</span>
-        {count === null && (
-          <button className={classes.buy} onClick={toggleBuy}>
+        {!isExistOrder && (
+          <button
+            className={classes.buy}
+            onClick={updateOrder}
+            data-order={`${pizzaId}/${title}/${price}/1`}
+          >
             Buy
           </button>
         )}
-        {Number.isInteger(count) && (
+        {isExistOrder && (
           <div className={classes.counterContainer}>
             <button
               className={classes.icon}
-              disabled={count <= 0}
-              onClick={decreaseCount}
+              disabled={order.count <= 0}
+              onClick={updateOrder}
+              data-order={`${pizzaId}/${title}/${price}/${order.count - 1}`}
             >
               <span className={classes.sign}>&#8722;</span>
             </button>
-            <span className={classes.count}>{count}</span>
+            <span className={classes.count}>{order.count}</span>
             <button
               className={classes.icon}
-              disabled={count > 9}
-              onClick={increaseCount}
+              disabled={order.count > 9}
+              onClick={updateOrder}
+              data-order={`${pizzaId}/${title}/${price}/${order.count + 1}`}
             >
               <span className={classes.sign}>&#43;</span>
             </button>
@@ -58,9 +51,12 @@ const Suggestion = ({ classes, title, price, weight }) => {
 };
 
 Suggestion.propTypes = {
-  classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  weight: PropTypes.string.isRequired
+  weight: PropTypes.string.isRequired,
+  order: PropTypes.shape({
+    price: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired
+  })
 };
 
-export default withStyles(styles)(Suggestion);
+export default React.memo(Suggestion);

@@ -1,4 +1,6 @@
-export default () => ({
+import { makeStyles } from "@material-ui/core/styles";
+
+export default makeStyles(() => ({
   container: {
     marginBottom: 16
   },
@@ -71,7 +73,8 @@ export default () => ({
   },
   sign: {
     transform: "translateY(-2px)",
-    display: "inline-block"
+    display: "inline-block",
+    "pointer-events": "none"
   },
   count: {
     color: "#000",
@@ -89,4 +92,4 @@ export default () => ({
     fontWeight: "bold",
     lineHeight: "15px"
   }
-});
+}));

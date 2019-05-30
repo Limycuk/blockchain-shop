@@ -5,7 +5,7 @@ import { ContextLoader } from "~/packages/UIKit";
 
 import useFetchImage from "./useFetchImage";
 
-const AsyncImage = ({ src, alt }, ...params) => {
+const AsyncImage = ({ src, alt }) => {
   const imageSrc = useFetchImage(src);
 
   const isLoading = imageSrc === null;

@@ -23,7 +23,7 @@ export default requestSrc => {
       img.onload = null;
       img.onerror = null;
     };
-  }, []);
+  }, [requestSrc]);
 
   return src;
 };

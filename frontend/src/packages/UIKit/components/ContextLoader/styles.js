@@ -1,4 +1,6 @@
-export default () => ({
+import { makeStyles } from "@material-ui/core/styles";
+
+export default makeStyles(() => ({
   container: {
     margin: "100px auto",
     width: "40px",
@@ -107,4 +109,4 @@ export default () => ({
       animationDelay: "-0.1s"
     }
   }
-});
+}));

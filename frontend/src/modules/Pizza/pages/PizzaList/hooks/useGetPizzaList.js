@@ -9,7 +9,7 @@ export default () => {
     rest.Pizza.fetchPizzas().then(pizzas => {
       setPizzas(pizzas);
     });
-  });
+  }, []);
 
   return pizzas;
 };

@@ -1,25 +1,22 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { BrowserRouter, Route } from "react-router-dom";
-
-import { withStyles } from "@material-ui/core/styles";
 
 import PizzaList from "~/modules/Pizza/pages/PizzaList";
 
-import styles from "./styles";
+import Header from "../Header";
+import useStyles from "./styles";
 
-const Router = ({ classes }) => {
+const Router = () => {
+  const classes = useStyles();
+
   return (
     <BrowserRouter>
       <div className={classes.container}>
+        <Header />
         <Route path="/" exact component={PizzaList} />
       </div>
     </BrowserRouter>
   );
 };
 
-Router.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(Router);
+export default Router;
